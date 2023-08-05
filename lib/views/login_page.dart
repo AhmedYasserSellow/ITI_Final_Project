@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iti_final_project/logic/app_cubit.dart';
 import 'package:iti_final_project/views/register_page.dart';
 import '../logic/login_register_cubit.dart';
 import '../logic/login_register_states.dart';
@@ -104,6 +105,7 @@ class LoginPage extends StatelessWidget {
                   customButton(
                     onTap: () {
                       if (formKey.currentState!.validate()) {
+                        AppCubit.get(context).changeBottomNavIndex(1);
                         LoginRegisterCubit.get(context).signIn(
                             context: context,
                             emailController: emailController,

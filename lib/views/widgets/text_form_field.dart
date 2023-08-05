@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-Widget customTextFormField(
-    {required validate,
-    required String label,
-    required IconData prefix,
-    required BuildContext context,
-    required Color color,
-    bool isHidden = false,
-    bool isEnabled = true,
-    Color focusColor = Colors.blue,
-    Color labelColor = Colors.grey,
-    Widget? suffix,
-    TextEditingController? controller}) {
+Widget customTextFormField({
+  required validate,
+  required String label,
+  required IconData prefix,
+  required BuildContext context,
+  required Color color,
+  required TextEditingController controller,
+  bool isHidden = false,
+  bool isEnabled = true,
+  Color focusColor = Colors.blue,
+  Color labelColor = Colors.grey,
+  Widget? suffix,
+}) {
   return TextFormField(
     controller: controller,
     enabled: isEnabled,

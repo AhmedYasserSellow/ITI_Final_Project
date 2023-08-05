@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti_final_project/logic/login_register_states.dart';
 import 'package:iti_final_project/views/home/home_layout.dart';
+import 'package:iti_final_project/views/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
@@ -16,12 +17,18 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
     required BuildContext context,
     required TextEditingController emailController,
     required TextEditingController passwordController,
+    required TextEditingController nameController,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
-      );
+      )
+          .then((userCredential) {
+        User user = userCredential.user!;
+        user.updateDisplayName(nameController.text);
+      });
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('Sign Up Successful, go to login page')));
@@ -47,10 +54,17 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
-      );
+      )
+          .then((userCredential) async {
+        User user = userCredential.user!;
+        final prefs = await SharedPreferences.getInstance();
+        prefs.setString('Name', user.displayName!);
+        prefs.setString('Email', user.email!);
+      });
       prefs.setBool('isLoggedIn', true);
       if (context.mounted) {
         emailController.clear();
@@ -68,6 +82,15 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('Login failed')));
       }
+    }
+  }
+
+  Future logOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isLoggedIn', false);
+    if (context.mounted) {
+      Navigator.pushReplacementNamed(context, LoginPage.id);
     }
   }
 

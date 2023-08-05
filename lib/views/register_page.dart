@@ -16,6 +16,8 @@ class RegisterPage extends StatelessWidget {
 
   final TextEditingController passwordController = TextEditingController();
 
+  final TextEditingController nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginRegisterCubit, LoginRegisterStates>(
@@ -37,6 +39,22 @@ class RegisterPage extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 60,
+                  ),
+                  customTextFormField(
+                    controller: nameController,
+                    validate: (String? value) {
+                      if (value!.isEmpty || value.length < 2) {
+                        return 'enter a vaild name';
+                      }
+                      return null;
+                    },
+                    label: 'Your Name',
+                    prefix: Icons.account_circle,
+                    context: context,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   customTextFormField(
                     controller: emailController,
@@ -86,6 +104,7 @@ class RegisterPage extends StatelessWidget {
                           context: context,
                           emailController: emailController,
                           passwordController: passwordController,
+                          nameController: nameController,
                         );
                       }
                     },
