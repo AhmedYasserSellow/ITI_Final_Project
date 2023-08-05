@@ -69,9 +69,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       label: 'Egypt , Dakahalia , Mansoura',
                       icon: Icons.location_on,
                     ),
-                    const Expanded(child: SizedBox()),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     customButton(
-                      width: 200,
                       onTap: () {
                         LoginRegisterCubit.get(context).logOut(context);
                       },
