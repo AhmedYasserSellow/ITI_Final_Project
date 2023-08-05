@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/logic/login_register_cubit.dart';
 import 'package:iti_final_project/views/widgets/button.dart';
 import 'package:iti_final_project/views/widgets/list_tile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -71,7 +72,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     const Expanded(child: SizedBox()),
                     customButton(
                       width: 200,
-                      onTap: () {},
+                      onTap: () {
+                        LoginRegisterCubit.get(context).logOut(context);
+                      },
                       text: 'Log Out',
                       color: Colors.red,
                     ),

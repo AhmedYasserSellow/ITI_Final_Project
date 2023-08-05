@@ -12,7 +12,7 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
   bool isHidden = true;
 
   IconData obsecureIcon = Icons.visibility;
-  String? email;
+
   Future signUp({
     required BuildContext context,
     required TextEditingController emailController,
