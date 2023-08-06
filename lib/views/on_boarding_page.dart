@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iti_final_project/views/home/home_layout.dart';
+
 import 'package:iti_final_project/views/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,10 +38,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             const Text('Welcome to our application'),
             InkWell(
-              onTap: () {
-                isLoggedin
-                    ? Navigator.pushReplacementNamed(context, HomeLayout.id)
-                    : Navigator.pushReplacementNamed(context, LoginPage.id);
+              onTap: () async {
+                final prefs = await SharedPreferences.getInstance();
+                prefs.setBool('isOpenedBefore', true);
+                if (context.mounted) {
+                  Navigator.pushReplacementNamed(context, LoginPage.id);
+                }
               },
               child: Container(
                 height: 50,

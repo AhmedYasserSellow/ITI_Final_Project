@@ -7,6 +7,7 @@ import 'package:iti_final_project/views/home/home_layout.dart';
 import 'package:iti_final_project/views/login_page.dart';
 import 'package:iti_final_project/views/on_boarding_page.dart';
 import 'package:iti_final_project/views/register_page.dart';
+import 'package:iti_final_project/views/splash_page.dart';
 
 import 'firebase_options.dart';
 
@@ -39,9 +40,10 @@ class MyApp extends StatelessWidget {
           OnBoardingPage.id: (context) => const OnBoardingPage(),
           LoginPage.id: (context) => LoginPage(),
           RegisterPage.id: (context) => RegisterPage(),
-          HomeLayout.id: (context) => const HomeLayout()
+          HomeLayout.id: (context) => const HomeLayout(),
+          SplashPage.id: (context) => const SplashPage()
         },
-        initialRoute: OnBoardingPage.id,
+        initialRoute: SplashPage.id,
       ),
     );
   }
