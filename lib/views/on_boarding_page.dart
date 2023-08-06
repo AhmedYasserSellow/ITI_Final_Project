@@ -36,7 +36,24 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               'assets/logo.png',
               width: 300,
             ),
-            const Text('Welcome to our application'),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              'Welcome to ITI E-Commerce App',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              'Sign in to save your favourites\nSearch by categories\nShop what you want ,anytime',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             InkWell(
               onTap: () async {
                 final prefs = await SharedPreferences.getInstance();
