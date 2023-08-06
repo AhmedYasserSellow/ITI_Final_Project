@@ -29,9 +29,7 @@ Widget aboutDev({
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            // tileColor: const Color.fromRGBO(61, 106, 214, 1),
-            // textColor: Colors.white,
-            leading: Image.asset(
+                       leading: Image.asset(
               img,
               width: 75,
               height: 75,
