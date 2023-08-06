@@ -35,9 +35,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
                       Image.asset(
                         'assets/user.png',
                         width: 150,
