@@ -32,57 +32,59 @@ class _ProfilePageState extends State<ProfilePage> {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Center(
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Image.asset(
-                      'assets/user.png',
-                      width: 150,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customListTile(
-                      label: snapshot.data!['name']!,
-                      icon: Icons.account_circle,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customListTile(
-                      label: snapshot.data!['email']!,
-                      icon: Icons.email,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customListTile(
-                      label: '01XXXXXXXXX',
-                      icon: Icons.phone,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customListTile(
-                      label: 'Egypt , Dakahalia , Mansoura',
-                      icon: Icons.location_on,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    customButton(
-                      onTap: () {
-                        LoginRegisterCubit.get(context).logOut(context);
-                      },
-                      text: 'Log Out',
-                      color: Colors.red,
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Image.asset(
+                        'assets/user.png',
+                        width: 150,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      customListTile(
+                        label: snapshot.data!['name']!,
+                        icon: Icons.account_circle,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      customListTile(
+                        label: snapshot.data!['email']!,
+                        icon: Icons.email,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      customListTile(
+                        label: '01XXXXXXXXX',
+                        icon: Icons.phone,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      customListTile(
+                        label: 'Egypt , Dakahalia , Mansoura',
+                        icon: Icons.location_on,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      customButton(
+                        onTap: () {
+                          LoginRegisterCubit.get(context).logOut(context);
+                        },
+                        text: 'Log Out',
+                        color: Colors.red,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
