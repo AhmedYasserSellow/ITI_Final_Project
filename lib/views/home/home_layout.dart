@@ -48,11 +48,11 @@ class HomeLayout extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.developer_mode),
-              label: 'About Developers',
+              label: 'Developers',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.info),
-              label: 'About App',
+              label: 'About',
             ),
           ],
           onTap: (index) {
