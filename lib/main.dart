@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           LoginPage.id: (context) => LoginPage(),
           RegisterPage.id: (context) => RegisterPage(),
           HomeLayout.id: (context) => const HomeLayout(),
-          SplashPage.id: (context) => const SplashPage()
+          SplashPage.id: (context) => const SplashPage(),
         },
         initialRoute: SplashPage.id,
       ),

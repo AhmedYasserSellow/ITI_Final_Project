@@ -7,7 +7,7 @@ class AppCubit extends Cubit<AppStates> {
 
   static AppCubit get(context) => BlocProvider.of(context);
 
-  int bottomNavBarIndex = 1;
+  int bottomNavBarIndex = 2;
 
   void changeBottomNavIndex(int index) {
     bottomNavBarIndex = index;
