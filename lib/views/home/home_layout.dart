@@ -12,8 +12,8 @@ List<Widget> pages = [
   const ProfilePage(),
   const CatogriesPage(),
   const HomePage(),
-  const AboutPage(),
   const AboutDevPage(),
+  const AboutPage(),
 ];
 
 class HomeLayout extends StatelessWidget {
