@@ -21,6 +21,7 @@ class HomeLayout extends StatelessWidget {
     return BlocBuilder<AppCubit, AppStates>(builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromRGBO(61, 106, 214, 1),
           title: const Text('ITI E-Commerce App'),
           centerTitle: true,
           actions: [
@@ -43,6 +44,7 @@ class HomeLayout extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: const Color.fromRGBO(61, 106, 214, 1),
           currentIndex: AppCubit.get(context).bottomNavBarIndex,
           type: BottomNavigationBarType.fixed,
           items: const [

@@ -9,7 +9,7 @@ Widget customListTile({required String label, required IconData icon}) {
       size: 32,
     ),
     textColor: Colors.white,
-    tileColor: Colors.blue,
+    tileColor: const Color.fromRGBO(61, 106, 214, 1),
     title: Text(
       label,
       style: const TextStyle(fontSize: 18),
