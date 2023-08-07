@@ -46,6 +46,12 @@ class AboutDevPage extends StatelessWidget {
             whatsappUrl: 'https://wa.me/201093509828',
             githubUrl: 'https://github.com/Ahmedbakr122',
           ),
+             aboutDev(
+            img: 'assets/mahmoud_essam.png',
+            name: 'Mahmoud Essam El Sayed',
+            whatsappUrl: 'https://wa.me/201093930407',
+            githubUrl: 'https://github.com/mahmoudmiky',
+          ),
         ],
       ),
     );
