@@ -105,7 +105,7 @@ class LoginPage extends StatelessWidget {
                   customButton(
                     onTap: () {
                       if (formKey.currentState!.validate()) {
-                        AppCubit.get(context).changeBottomNavIndex(1);
+                        AppCubit.get(context).changeBottomNavIndex(2);
                         LoginRegisterCubit.get(context).signIn(
                             context: context,
                             emailController: emailController,
