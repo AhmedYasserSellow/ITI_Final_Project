@@ -42,7 +42,9 @@ class LoginPage extends StatelessWidget {
                   customTextFormField(
                     controller: emailController,
                     validate: (String? value) {
-                      if (value!.isEmpty || !value.contains('@')) {
+                      if (value!.isEmpty ||
+                          !value.contains('@') ||
+                          value.endsWith('@')) {
                         return "enter a valid e-mail";
                       }
                       return null;
@@ -74,7 +76,9 @@ class LoginPage extends StatelessWidget {
                         LoginRegisterCubit.get(context)
                             .changePasswordVisibilty();
                       },
-                      icon: Icon(LoginRegisterCubit.get(context).obsecureIcon),
+                      icon: Icon(
+                        LoginRegisterCubit.get(context).obsecureIcon,
+                      ),
                     ),
                   ),
                   const SizedBox(
