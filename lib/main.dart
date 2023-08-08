@@ -8,7 +8,6 @@ import 'package:iti_final_project/views/login_page.dart';
 import 'package:iti_final_project/views/on_boarding_page.dart';
 import 'package:iti_final_project/views/register_page.dart';
 import 'package:iti_final_project/views/splash_page.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
