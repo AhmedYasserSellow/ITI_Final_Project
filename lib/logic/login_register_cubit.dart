@@ -11,7 +11,7 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
   static LoginRegisterCubit get(context) => BlocProvider.of(context);
   bool isHidden = true;
 
-  IconData obsecureIcon = Icons.visibility;
+  IconData obsecureIcon = Icons.visibility_off;
 
   Future signUp({
     required BuildContext context,

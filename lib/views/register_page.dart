@@ -91,7 +91,9 @@ class RegisterPage extends StatelessWidget {
                         LoginRegisterCubit.get(context)
                             .changePasswordVisibilty();
                       },
-                      icon: Icon(LoginRegisterCubit.get(context).obsecureIcon),
+                      icon: Icon(
+                        LoginRegisterCubit.get(context).obsecureIcon,
+                      ),
                     ),
                   ),
                   const SizedBox(
