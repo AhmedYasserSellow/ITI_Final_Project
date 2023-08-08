@@ -79,8 +79,6 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
       });
       prefs.setBool('isLoggedIn', true);
       if (context.mounted) {
-        emailController.clear();
-        passwordController.clear();
         Navigator.pushReplacementNamed(context, HomeLayout.id);
       }
     } on FirebaseAuthException catch (e) {
