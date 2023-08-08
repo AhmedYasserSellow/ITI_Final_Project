@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: AppCubit.get(context).getData(),
+        future: AppCubit.get(context).getProfileData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Padding(

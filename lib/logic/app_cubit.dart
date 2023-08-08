@@ -22,7 +22,7 @@ class AppCubit extends Cubit<AppStates> {
     emit(AppGetState());
   }
 
-  Future<Map<String, String>> getData() async {
+  Future<Map<String, String>> getProfileData() async {
     final prefs = await SharedPreferences.getInstance();
     name = prefs.getString('Name');
     email = prefs.getString('Email');
