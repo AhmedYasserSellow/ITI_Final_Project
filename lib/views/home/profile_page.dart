@@ -1,32 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:iti_final_project/logic/app_cubit.dart';
 import 'package:iti_final_project/logic/login_register_cubit.dart';
 import 'package:iti_final_project/views/widgets/button.dart';
 import 'package:iti_final_project/views/widgets/list_tile.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
-
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  String? name, email;
-  Future<Map<String, String>> getData() async {
-    final prefs = await SharedPreferences.getInstance();
-    name = prefs.getString('Name');
-    email = prefs.getString('Email');
-    return <String, String>{
-      'name': name!,
-      'email': email!,
-    };
-  }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getData(),
+        future: AppCubit.get(context).getData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Padding(

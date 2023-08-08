@@ -3,27 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:iti_final_project/views/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class OnBoardingPage extends StatefulWidget {
+class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
   static String id = 'On Boarding Page';
 
-  @override
-  State<OnBoardingPage> createState() => _OnBoardingPageState();
-}
 
-class _OnBoardingPageState extends State<OnBoardingPage> {
-  bool isLoggedin = false;
-
-  void isLoggedInState() async {
-    final prefs = await SharedPreferences.getInstance();
-    isLoggedin = prefs.getBool('isLoggedIn') ?? false;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    isLoggedInState();
-  }
 
   @override
   Widget build(BuildContext context) {
