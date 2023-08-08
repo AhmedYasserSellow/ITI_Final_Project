@@ -59,7 +59,9 @@ class RegisterPage extends StatelessWidget {
                   customTextFormField(
                     controller: emailController,
                     validate: (String? value) {
-                      if (value!.isEmpty || !value.contains('@')) {
+                      if (value!.isEmpty ||
+                          !value.contains('@') ||
+                          value.endsWith('@')) {
                         return "enter a valid e-mail";
                       }
                       return null;
