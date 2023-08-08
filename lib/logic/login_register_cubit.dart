@@ -30,19 +30,31 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
         user.updateDisplayName(nameController.text);
       });
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('Sign Up Successful, go to login page')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Sign Up Successful, go to login page'),
+          ),
+        );
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Sign Up failed : weak passwrod')));
+          const SnackBar(
+            content: Text('Sign Up failed : weak passwrod'),
+          ),
+        );
       } else if (e.code == 'email-already-in-use') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('Sign Up failed : email already in use')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Sign Up failed : email already in use'),
+          ),
+        );
       } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Sign Up failed ')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Sign Up failed '),
+          ),
+        );
       }
     }
   }
@@ -74,13 +86,22 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('No user found for that email')));
+          const SnackBar(
+            content: Text('No user found for that email'),
+          ),
+        );
       } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('Wrong password provided for that user')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Wrong password provided for that user'),
+          ),
+        );
       } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Login failed')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Login failed'),
+          ),
+        );
       }
     }
   }
@@ -99,15 +120,24 @@ class LoginRegisterCubit extends Cubit<LoginRegisterStates> {
     required TextEditingController emailController,
   }) async {
     try {
-      await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: emailController.text);
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: emailController.text,
+      );
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('message sent to your email')));
+          const SnackBar(
+            content: Text(
+              'message sent to your email',
+            ),
+          ),
+        );
       }
     } on FirebaseAuthException {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('enter a valid email')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('enter a valid email'),
+        ),
+      );
     }
   }
 
